@@ -11,8 +11,7 @@ NEXORA Enterprise BI is an end-to-end data analytics and visualization project d
 ---
 
 ## 🖼️ Dashboard Preview
-![Dashboard Preview](screenshots/dashboard.png)
-
+![Dashboard Preview](screenshotsdashboard.png.jpg)
 ---
 
 ## ⚙️ Core DAX Measures
