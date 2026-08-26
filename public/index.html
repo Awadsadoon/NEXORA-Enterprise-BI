@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVision | Education Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">E</span><div><b>EduVision</b><small>Education Intelligence</small></div></div>
+    <nav>
+      <a class="active" href="#"><span>⌂</span> Dashboard</a>
+      <a href="#students"><span>👥</span> Students</a>
+      <a href="#analytics"><span>◈</span> Analytics</a>
+      <a href="#attendance"><span>✓</span> Attendance</a>
+      <a href="#settings"><span>⚙</span> Settings</a>
+    </nav>
+    <div class="sidebar-footer">Portfolio Project<br><span>Full-Stack Education System</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Education Management</p>
+        <h1>Good morning, Admin 👋</h1>
+        <p class="muted">Here is today's overview of your schools.</p>
+      </div>
+      <button class="primary" onclick="openModal()">+ Add Student</button>
+    </header>
+
+    <section class="stats" id="analytics">
+      <article class="card stat"><div class="icon">👥</div><div><span>Total Students</span><strong id="studentsCount">—</strong><small>Registered students</small></div></article>
+      <article class="card stat"><div class="icon green">✓</div><div><span>Attendance</span><strong id="attendance">—</strong><small>Average attendance</small></div></article>
+      <article class="card stat"><div class="icon orange">★</div><div><span>Average Score</span><strong id="average">—</strong><small>Academic performance</small></div></article>
+      <article class="card stat"><div class="icon purple">●</div><div><span>Active Students</span><strong id="active">—</strong><small>Currently active</small></div></article>
+    </section>
+
+    <section class="grid">
+      <article class="card chart-card">
+        <div class="section-head"><div><h2>Academic Performance</h2><p class="muted">Average student performance</p></div><select><option>This Year</option><option>This Month</option></select></div>
+        <div class="bars" id="bars">
+          <div style="--h:62%"><span>Q1</span></div><div style="--h:74%"><span>Q2</span></div><div style="--h:69%"><span>Q3</span></div><div style="--h:88%"><span>Q4</span></div><div style="--h:80%"><span>Q5</span></div><div style="--h:92%"><span>Q6</span></div>
+        </div>
+      </article>
+
+      <article class="card" id="attendance">
+        <div class="section-head"><div><h2>Attendance</h2><p class="muted">School attendance rate</p></div></div>
+        <div class="donut"><div><b id="donutValue">—</b><span>Average</span></div></div>
+        <div class="legend"><span><i></i> Present</span><span><i class="absent"></i> Absent</span></div>
+      </article>
+    </section>
+
+    <section class="card table-card" id="students">
+      <div class="section-head">
+        <div><h2>Students</h2><p class="muted">Manage and monitor student records</p></div>
+        <input id="search" class="search" placeholder="Search students..." oninput="renderStudents()">
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Student</th><th>Grade</th><th>School</th><th>Attendance</th><th>Average</th><th>Status</th><th></th></tr></thead>
+        <tbody id="studentRows"></tbody></table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <h2>Add New Student</h2>
+      <p class="muted">Create a new student record in the database.</p>
+      <form id="studentForm">
+        <label>Name<input name="name" required></label>
+        <label>Grade<input name="grade" placeholder="10th Grade" required></label>
+        <label>School<input name="school" required></label>
+        <div class="two"><label>Attendance %<input name="attendance" type="number" min="0" max="100" value="90"></label><label>Average Score<input name="average" type="number" min="0" max="100" value="85"></label></div>
+        <button class="primary full">Save Student</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
